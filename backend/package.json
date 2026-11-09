@@ -1,0 +1,39 @@
+{
+  "name": "download-guardian-backend",
+  "version": "1.0.0",
+  "description": "Download Guardian - Intelligent File Inspection and Threat Assessment Platform Backend API (Stateless)",
+  "main": "dist/server.js",
+  "scripts": {
+    "prebuild": "node -e \"['config','controllers','middlewares','models','routes','services','utils'].forEach(d => fs.mkdirSync('dist/' + d, {recursive: true}))\"",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts"
+  },
+  "keywords": [
+    "cybersecurity",
+    "file-inspection",
+    "threat-intelligence",
+    "virustotal",
+    "stateless",
+    "saas"
+  ],
+  "author": "Download Guardian Team",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.13.4",
+    "@types/uuid": "^10.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

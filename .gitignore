@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!.env.example
+
+# Build Artifacts & Output
+dist/
+build/
+dist-ssr/
+*.tsbuildinfo
+
+# Uploaded Files & Ephemeral Quarantine Storage (CRITICAL)
+storage/
+storage/quarantine/*
+!storage/quarantine/.gitkeep
+uploads/
+temp/
+tmp/
+*.bin
+*.exe
+*.dll
+*.apk
+
+# Logs
+logs/
+*.log
+*.zip
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor & OS Metadata
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+desktop.ini
+
