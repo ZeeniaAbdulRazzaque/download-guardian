@@ -3,7 +3,7 @@
   "services": {
     "backend": {
       "root": "backend",
-      "framework": null,
+      "framework": "express",
       "buildCommand": "npm install && npm run build",
       "outputDirectory": "dist",
       "entrypoint": "api/index.ts"
