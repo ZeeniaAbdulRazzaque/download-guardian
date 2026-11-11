@@ -4,14 +4,14 @@
     "backend": {
       "root": "backend",
       "framework": "express",
-      "buildCommand": "npm install && npm run build",
+      "buildCommand": "npm install --include=dev && npm run build",
       "outputDirectory": "dist",
       "entrypoint": "api/index.ts"
     },
     "frontend": {
       "root": "frontend",
       "framework": "vite",
-      "buildCommand": "npm install && npm run build",
+      "buildCommand": "npm install --include=dev && npm run build",
       "outputDirectory": "dist"
     }
   },
