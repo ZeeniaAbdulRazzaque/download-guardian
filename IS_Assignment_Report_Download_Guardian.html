@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information Security Report — Download Guardian</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f9fafb;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 60px 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+    h1 {
+      font-size: 26px;
+      color: #111827;
+      margin-top: 0;
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 12px;
+    }
+    h2 {
+      font-size: 20px;
+      color: #1e3a8a;
+      margin-top: 36px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+    h3 {
+      font-size: 16px;
+      color: #374151;
+      margin-top: 24px;
+    }
+    .meta-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 18px 24px;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .verdict-box {
+      background: #fef2f2;
+      border: 2px solid #ef4444;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .verdict-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #b91c1c;
+      letter-spacing: 1px;
+    }
+    .score-badge {
+      display: inline-block;
+      background: #b91c1c;
+      color: #ffffff;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 12px 14px;
+      text-align: left;
+    }
+    th {
+      background: #f3f4f6;
+      font-weight: 600;
+      color: #374151;
+    }
+    .hash {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      color: #0369a1;
+      word-break: break-all;
+    }
+    .ss-placeholder {
+      background: #f8fafc;
+      border: 2px dashed #94a3b8;
+      border-radius: 8px;
+      padding: 40px 20px;
+      text-align: center;
+      margin: 24px 0;
+      color: #64748b;
+    }
+    .ss-placeholder strong {
+      display: block;
+      color: #334155;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    .ss-placeholder span {
+      font-size: 13px;
+    }
+    .badge-critical {
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-high {
+      background: #ffedd5;
+      color: #9a3412;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    @media print {
+      body { background: white; padding: 0; }
+      .container { box-shadow: none; border: none; padding: 20px; }
+      .ss-placeholder { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Information Security Project Report</h1>
+    <p style="color: #6b7280; font-style: italic; margin-top: -6px;">Download Guardian — Intelligent Pre-Execution File Inspection & Threat Assessment Platform</p>
+
+    <div class="meta-box">
+      <div class="meta-grid">
+        <div><strong>Author / Student:</strong> Zeenia Abdul Razzaque</div>
+        <div><strong>Course:</strong> Information Security (IS)</div>
+        <div><strong>Project:</strong> Download Guardian</div>
+        <div><strong>Tagline:</strong> <em>Know What's Inside Before You Open It</em></div>
+        <div><strong>GitHub Repository:</strong> <a href="https://github.com/ZeeniaAbdulRazzaque/download-guardian">ZeeniaAbdulRazzaque/download-guardian</a></div>
+        <div><strong>Report Reference:</strong> DG-2026-0667CD</div>
+      </div>
+      <div style="margin-top: 12px; padding-top: 10px; border-top: 1px dashed #bfdbfe;">
+        <strong>Live Production URL:</strong> <span style="display: inline-block; width: 350px; border-bottom: 1.5px solid #2563eb; margin-left: 6px;">&nbsp;</span> <em>(Insert hosted URL here)</em>
+      </div>
+    </div>
+
+    <h2>1. Executive Summary</h2>
+    <p>
+      Drive-by downloads, phishing campaigns, and deceptive file extensions remain the primary infection vectors in modern cybersecurity. Operating systems like Windows hide extensions for known file types by default, allowing attackers to disguise native executable binaries as harmless PDFs or images.
+    </p>
+    <p>
+      <strong>Download Guardian</strong> provides an automated, zero-trust file inspection platform before files are opened or executed. The system operates on a <strong>100% Stateless & Ephemeral Security Architecture</strong>: files are analyzed in volatile memory and quarantine storage, cryptographic hashes are computed, deep structural magic-byte signatures are inspected, and immediate auto-cleanup is executed.
+    </p>
+
+    <h2>2. Malicious File Case Study: <code>space.pdf.exe</code></h2>
+    <p>
+      A live security assessment was performed against the malicious test artifact <strong><code>space.pdf.exe</code></strong> from the local downloads directory.
+    </p>
+
+    <div class="verdict-box">
+      <div class="verdict-title">POTENTIALLY MALICIOUS</div>
+      <div class="score-badge">Threat Score: 65 / 100</div>
+      <p style="margin: 10px 0 0 0; color: #7f1d1d; font-size: 14px;">
+        Multiple high-risk indicators identified: Deceptive multi-extension masquerading detected.
+      </p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Artifact Property</th>
+          <th>Inspection Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Artifact Name</strong></td>
+          <td><code>space.pdf.exe</code></td>
+        </tr>
+        <tr>
+          <td><strong>File Size</strong></td>
+          <td>27 Bytes</td>
+        </tr>
+        <tr>
+          <td><strong>SHA-256 Hash</strong></td>
+          <td class="hash">fd53bba6a246c58394b1c6ea8029c291277cf6c13b39dc2f03a455dc9f370e5b</td>
+        </tr>
+        <tr>
+          <td><strong>MD5 Hash</strong></td>
+          <td class="hash">8e0e1593b50802c5d638ab5716354baf</td>
+        </tr>
+        <tr>
+          <td><strong>Detected MIME</strong></td>
+          <td><code>application/octet-stream</code></td>
+        </tr>
+        <tr>
+          <td><strong>Magic Byte Signature</strong></td>
+          <td>Unknown / Binary Raw Stream</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Identified Threat Indicators</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Severity</th>
+          <th>Category</th>
+          <th>Indicator Title</th>
+          <th>Analysis & Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge-critical">CRITICAL</span></td>
+          <td>METADATA_ANOMALY</td>
+          <td><strong>Double File Extension</strong></td>
+          <td>
+            File uses <code>space.pdf.exe</code>. In Windows, users see <code>space.pdf</code>, tricking them into clicking a binary executable disguised as a PDF document.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge-high">HIGH</span></td>
+          <td>STATIC_ANALYSIS</td>
+          <td><strong>Executable Binary</strong></td>
+          <td>
+            Artifact is an executable binary (<code>.exe</code>) capable of arbitrary native code execution, system API calls, and network communication.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. System Screenshots & Evidence</h2>
+
+    <div class="ss-placeholder">
+      <strong>[ SCREENSHOT 1: DASHBOARD & DROPZONE ]</strong>
+      <span>Paste screenshot of Download Guardian main page showing file upload dropzone and stateless security status</span>
+    </div>
+
+    <div class="ss-placeholder">
+      <strong>[ SCREENSHOT 2: ANALYSIS RESULTS FOR <code>space.pdf.exe</code> ]</strong>
+      <span>Paste screenshot of Results page showing Verdict: POTENTIALLY MALICIOUS, Score: 65, and Indicators</span>
+    </div>
+
+    <div class="ss-placeholder">
+      <strong>[ SCREENSHOT 3: TECHNICAL FORENSIC EVIDENCE ]</strong>
+      <span>Paste screenshot showing SHA-256 / MD5 hashes, MIME type, and Recommendations</span>
+    </div>
+
+    <div class="ss-placeholder">
+      <strong>[ SCREENSHOT 4: REPORTS AUDIT CONSOLE ]</strong>
+      <span>Paste screenshot of Reports list showing session report DG-2026-0667CD</span>
+    </div>
+
+    <h2>4. Key Security Architecture Features</h2>
+    <ul>
+      <li><strong>100% Stateless & Ephemeral:</strong> Zero persistent databases. Prevents credential leakage and database injection (SQLi).</li>
+      <li><strong>Immediate Binary Purge:</strong> Uploaded files are quarantined temporarily, inspected, and destroyed automatically from volatile storage.</li>
+      <li><strong>Pre-Execution Verification:</strong> Analyzes magic bytes and headers before the operating system or browser runs the file.</li>
+      <li><strong>VirusTotal v3 Integration:</strong> Hash reputation querying with in-memory caching.</li>
+    </ul>
+
+    <h2>5. Automated Security Recommendations</h2>
+    <ol>
+      <li><strong>Quarantine and Delete File:</strong> Do not open, mount, or execute <code>space.pdf.exe</code>. Remove it from your local downloads directory immediately.</li>
+      <li><strong>Audit Source Web URL:</strong> Verify whether the download URL was legitimate or a deceptive typosquatting domain.</li>
+    </ol>
+  </div>
+</body>
+</html>
+

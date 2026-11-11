@@ -9,10 +9,12 @@ import { sendError } from './utils/response.js';
 export const createApp = () => {
   const app = express();
 
-  // Middleware
+  // Allow requests from the Vercel-hosted frontend (env var) or any origin in dev
+  const allowedOrigin = process.env.FRONTEND_URL || '*';
+
   app.use(
     cors({
-      origin: '*',
+      origin: allowedOrigin,
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       allowedHeaders: ['Content-Type', 'Authorization'],
     })
@@ -24,48 +26,51 @@ export const createApp = () => {
   // API v1 router
   app.use('/api/v1', routes);
 
-  // Serve static Frontend if built
-  const possibleFrontendDirs = [
-    path.resolve(process.cwd(), 'frontend/dist'),
-    path.resolve(process.cwd(), '../frontend/dist'),
-    path.resolve(process.cwd(), 'public'),
-    path.resolve(process.cwd(), 'backend/public'),
-  ];
+  // Serve static Frontend if built (local dev / single-server mode only)
+  // On Vercel, the frontend is served by the separate Vite service — skip this.
+  if (process.env.VERCEL !== '1') {
+    const possibleFrontendDirs = [
+      path.resolve(process.cwd(), 'frontend/dist'),
+      path.resolve(process.cwd(), '../frontend/dist'),
+      path.resolve(process.cwd(), 'public'),
+      path.resolve(process.cwd(), 'backend/public'),
+    ];
 
-  let frontendDir: string | null = null;
-  for (const dir of possibleFrontendDirs) {
-    if (fs.existsSync(path.join(dir, 'index.html'))) {
-      frontendDir = dir;
-      break;
+    let frontendDir: string | null = null;
+    for (const dir of possibleFrontendDirs) {
+      if (fs.existsSync(path.join(dir, 'index.html'))) {
+        frontendDir = dir;
+        break;
+      }
+    }
+
+    if (frontendDir) {
+      app.use(express.static(frontendDir));
+      app.get('*', (req, res, next) => {
+        if (req.path.startsWith('/api')) {
+          return next();
+        }
+        res.sendFile(path.join(frontendDir!, 'index.html'));
+      });
     }
   }
 
-  if (frontendDir) {
-    app.use(express.static(frontendDir));
-    app.get('*', (req, res, next) => {
-      if (req.path.startsWith('/api')) {
-        return next();
-      }
-      res.sendFile(path.join(frontendDir!, 'index.html'));
+  // Root info route (Vercel / API-only mode)
+  app.get('/', (_req, res) => {
+    res.json({
+      name: 'Download Guardian API',
+      tagline: "Know What's Inside Before You Open It",
+      type: 'Intelligent File Inspection and Threat Assessment Platform (Stateless)',
+      version: '1.0.0',
+      status: 'ONLINE',
+      endpoints: {
+        health: '/api/v1/health',
+        upload: 'POST /api/v1/scans/upload',
+        scans: '/api/v1/scans/:scanId',
+        reports: '/api/v1/reports',
+      },
     });
-  } else {
-    // Root welcome route if frontend is not built
-    app.get('/', (_req, res) => {
-      res.json({
-        name: 'Download Guardian API',
-        tagline: "Know What's Inside Before You Open It",
-        type: 'Intelligent File Inspection and Threat Assessment Platform (Stateless)',
-        version: '1.0.0',
-        status: 'ONLINE',
-        endpoints: {
-          health: '/api/v1/health',
-          upload: 'POST /api/v1/scans/upload',
-          scans: '/api/v1/scans/:scanId',
-          reports: '/api/v1/reports',
-        },
-      });
-    });
-  }
+  });
 
   // 404 Route Handler for unmatched API routes
   app.use((req, res) => {
